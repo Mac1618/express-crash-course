@@ -1,6 +1,7 @@
 // imports
 const express = require('express');
 const path = require('path');
+const port = process.env.PORT || 8000
 
 // rename return value
 const app = express();
@@ -20,6 +21,6 @@ app.get('/api/v1/', (req, res) => {
 });
 
 // running port
-app.listen(8000, () => {
-	console.log('Running in port 8000');
+app.listen(port, () => {
+	console.log(`Running in port ${port}`);
 });

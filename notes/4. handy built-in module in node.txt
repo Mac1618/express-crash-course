@@ -1,0 +1,11 @@
+Handy modules that can be used
+1. cont path = require("path")        
+    - use to get the file path
+
+2. postman in vscode
+  - same use with the software
+  - needs an account before use
+
+3. how to use ".env" file without installing dependencies/ package
+  a. import:          - const port = process.env.PORT || 8000;
+  b. package.json     - add in "npm run dev":  "--env-file=.env"

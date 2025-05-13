@@ -1,23 +1,21 @@
-// import express
+// imports
 const express = require('express');
+const path = require('path');
 
 // rename return value
 const app = express();
 
+// static web server
+app.use(express.static(path.join(__dirname, 'public')));
+
 // simple get request
-app.get('/', (req, res) => {
-	res.send({ message: 'Hello World!...' });
+app.get('/v1/', (req, res) => {
+	res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get("/about", (req, res) => {
-  res.send(`
-    <ul>
-      <li>apple</li>
-      <li>mango</li>
-      <li>banana</li>  
-    </ul>
-  `);
-})
+app.get('/v1/about', (req, res) => {
+	res.sendFile(path.join(__dirname, 'public', 'about.html'));
+});
 
 // running port
 app.listen(8000, () => {

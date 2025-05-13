@@ -42,6 +42,30 @@ app.get('/api/v1/post/:postId', (req, res) => {
 	res.status(200).json(posts.filter((post) => post.id === id));
 });
 
+app.get('/auth', (req, res) => {
+  const { redirect_uri, client_id, response_type } = req.query;
+  
+  // Display a mock login page
+  res.send(`
+    <html>
+      <body>
+        <h1>Mock Singpass Login</h1>
+        <form method="GET" action="/mock-login">
+          <input type="hidden" name="redirect_uri" value="${redirect_uri}" />
+          <button type="submit">Login with Mock Singpass</button>
+        </form>
+      </body>
+    </html>
+  `);
+});
+
+
+app.get('/mock-login', (req, res) => {
+  const { redirect_uri } = req.query;
+  // Simulate successful login by redirecting to your app with a mock code
+  res.redirect(`${redirect_uri}?code=MOCK_AUTH_CODE_123`);
+});
+
 // running port
 app.listen(port, () => {
 	console.log(`Running in port ${port}`);

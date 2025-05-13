@@ -23,19 +23,23 @@ app.get('/api/v1/posts', (req, res) => {
 
 	// should be "number" and "not negative"
 	if (!isNaN(convertLimitToInt) && convertLimitToInt > 0) {
-		res.send(posts.slice(0, convertLimitToInt));
-    
-		// show all posts
-	} else {
-		res.json(posts);
-  }
+		return res.status(200).json(posts.slice(0, convertLimitToInt));
+	}
+
+	// show all posts
+	res.status(200).json(posts);
 });
 
 // get single request
 app.get('/api/v1/post/:postId', (req, res) => {
 	const id = parseInt(req.params.postId);
+	const post = posts.find((post) => post.id === id);
 
-	res.json(posts.filter((post) => post.id === id));
+	if (!post) {
+		return res.status(404).json({ errorMessage: `Post id of ${id} is not found!` });
+	}
+
+	res.status(200).json(posts.filter((post) => post.id === id));
 });
 
 // running port

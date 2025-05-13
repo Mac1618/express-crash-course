@@ -1,0 +1,8 @@
+1. Preferred way to pass a "JSON" data  
+  a. res.json()     - recommended / preferred
+  b. res.send()     - can be used but not recommended
+
+2. Usually there should be "/api/v1/<route name>"
+  - "/api"            - identify as an api route
+  - "/v1"             - api version
+  - "/<route name>"   - specific name of the route path

@@ -8,13 +8,15 @@ const app = express();
 // static web server
 app.use(express.static(path.join(__dirname, 'public')));
 
-// simple get request
-app.get('/v1/', (req, res) => {
-	res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+let posts = [
+	{ id: 1, title: 'Apple' },
+	{ id: 2, title: 'Banana' },
+	{ id: 3, title: 'Orange' },
+];
 
-app.get('/v1/about', (req, res) => {
-	res.sendFile(path.join(__dirname, 'public', 'about.html'));
+// simple get request
+app.get('/api/v1/', (req, res) => {
+	res.json(posts);
 });
 
 // running port

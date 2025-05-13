@@ -1,0 +1,10 @@
+1. installation: 
+  a. npm init -y
+  b. npm i express
+  c. create ".gitignore" file
+      - add "node_modules/" and ".env"
+
+2. watch flag (alternative for nodemon)
+  a. open package.json
+  b. create a "dev" and "start" script
+  

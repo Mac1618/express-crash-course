@@ -1,0 +1,14 @@
+Guide / Definition of terms
+1. entry point file
+  a. "server.js":    - used for api, mern stack app where we serve "json" data
+  b. "app.js"        - uses templating engine like "ejs"
+
+2. Guide for basic server (template)
+  a. import express
+  b. assign "express" function return value to "app" 
+  c. create a simple "Get" method
+  d. define a port and start the server
+
+3. can only use 1 "res.send"
+  - first one only runs
+  - can response a "html element" or "json"

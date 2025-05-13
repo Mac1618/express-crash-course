@@ -1,0 +1,11 @@
+1. Guide
+  a. create a "public" folder in root
+  b. add "html" pages
+  c.1. use "app.use(express.static(path.join(__dirname, "public")))"
+    - app.use()             - middleware
+    - express.static()      - setup static folder
+    - path.join()           - file path
+  
+  c.2 static web page per route
+    - not optimal for a lot of dynamic pages.
+    - usage:    - app.get('/about', () => { path.join(__dirname, "public", "about.html")})

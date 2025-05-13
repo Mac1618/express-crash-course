@@ -1,0 +1,14 @@
+1. request params
+  - meaning:      - query, delete or update a data by this "id"
+  - rules:        - should be descriptive "id name"
+  - used:         - "/api/v1/item/:itemId"  
+  - sample code:  - "res.params.idName" and its value is a string
+
+
+  
+2. query params
+  - meaning:      - to query a data, can be sort, limit etc.
+  - rules:        - should be specific to prevent "sql injection".
+  - used:         - "/api/v1/items?limit=2&sort=desc"
+  - sample code:  - const { limit, sort } = res.query    // value: {limit: "2", sort: "desc"}
+                  - if(!isNaN(limit) && limit > 0) res.send(post.slice(0, limit))
